@@ -5,12 +5,13 @@ var BST_INDEX = new BST();
 
 // read all lines:
 var ElementID = 0;
-lineReader.eachLine('BIG.txt', function(line) {
-  	console.log(ElementID);  
+lineReader.eachLine('BIG.txt', function(line) {  
+  	if(ElementID % 1000 == 0){console.log(ElementID)}
+  	// console.log(line); 
 	ElementID++;
    	var i = 0; 
-   	if(ElementID==4496){console.log(line)}
-   	while(line[i] != "-" || i<400){i++; console.log(i,line[i]);}
+   	while(line[i] != "-" && i<400){i++; }
+   	// console.log(line); 
    	var text = line.substring(i+1); 
    	var words = text.split(" "); 
 
@@ -21,10 +22,5 @@ lineReader.eachLine('BIG.txt', function(line) {
    	// console.log("endLINE"); 
 }).then(function () {
   console.log("DONE"); 
-    // var IDs = BST_INDEX.search("eggs"); 
-    // IDs.forEach(function(id){
-    // 	var val = LookupBST.search(id)[0];
-    // 	console.log(id, val); 
-    // });
 	console.log(ElementID); 
 });
