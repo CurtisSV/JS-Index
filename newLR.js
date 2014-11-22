@@ -5,7 +5,7 @@ var BST_INDEX = new BST();
 
 // read all lines:
 var ElementID = 0;
-lineReader.eachLine('BIG.txt', function(line) {  
+lineReader.eachLine('tldrpg.txt', function(line) {  
   	if(ElementID % 1000 == 0){console.log(ElementID)}
   	// console.log(line); 
 	ElementID++;
