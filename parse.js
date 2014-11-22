@@ -52,6 +52,6 @@ test = function() {
         console.log(a);
         console.log("");
     });
-}();
+};
 
 module.exports = parse
