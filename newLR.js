@@ -52,7 +52,7 @@ var replProcess = function(d) {
     // console.log("\n\n", LookupBST.search(ID)); 
   }); 
   var end = Date.now(); 
-  console.log("query completed in " + (end-start) + " milliseconds")
+  console.log("returned "+finalIDs.length +"results in " + (end-start) + " milliseconds")
   console.log("\n\nplease enter another query:"); 
 
 }

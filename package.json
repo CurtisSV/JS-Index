@@ -6,7 +6,8 @@
   "dependencies": {
     "binary-search-tree": "^0.2.4",
     "circular-json": "^0.1.6",
-    "underscore": "^1.7.0"
+    "underscore": "^1.7.0",
+    "line-reader": "^0.2.4"
   },
   "devDependencies": {},
   "scripts": {
