@@ -10,7 +10,7 @@ var stdin = process.openStdin();
 // read all lines:
 var ElementID = 0;
 var indexStart = Date.now(); 
-lineReader.eachLine('BIG.txt', function(line) {  
+lineReader.eachLine('tldrpg.txt', function(line) {  
   	if(ElementID % 1000 == 0){console.log(ElementID)}
 	ElementID++;
    	var i = 0; 
@@ -38,18 +38,18 @@ var replProcess = function(d) {
 
   var finalIDs = [];
   var orPhrases = query.split("or");  
-  console.log("ORPHRASES"); 
-  console.log(orPhrases); 
+  // console.log("ORPHRASES"); 
+  // console.log(orPhrases); 
   orPhrases.forEach(function(andPhrase){
     var returnedAndIds = processAndPhrase(andPhrase)
-    console.log("\nreturnedAndIds", JSON.stringify(returnedAndIds)); 
+    // console.log("\nreturnedAndIds", JSON.stringify(returnedAndIds)); 
     finalIDs = _.union(finalIDs, returnedAndIds); 
   }); 
-  console.log("afterUnioning"); 
-  console.log(JSON.stringify(finalIDs)); 
+  // console.log("afterUnioning"); 
+  // console.log(JSON.stringify(finalIDs)); 
 
   finalIDs.forEach(function(ID){
-    // console.log("\n\n", LookupBST.search(ID)); 
+    console.log("\n\n", LookupBST.search(ID)); 
   }); 
   var end = Date.now(); 
   console.log("returned "+finalIDs.length +"results in " + (end-start) + " milliseconds")
@@ -60,7 +60,7 @@ var replProcess = function(d) {
 
 
 var processAndPhrase = function(phrase){
-  console.log("andPhrase", phrase); 
+  // console.log("andPhrase", phrase); 
   var words=phrase.split(" ");
 
   var andIDArrs = []; 
@@ -78,15 +78,15 @@ var processAndPhrase = function(phrase){
     var IDs = BST_INDEX.search(word);
     arrPointer.push(IDs);
   }); 
-  console.log("andIDs", JSON.stringify(andIDArrs)); 
-  console.log("notIds", JSON.stringify(notIDArrs)); 
+  // console.log("andIDs", JSON.stringify(andIDArrs)); 
+  // console.log("notIds", JSON.stringify(notIDArrs)); 
 
 
   var finalIDs = intersectArrOfArrs(andIDArrs); 
-  console.log("\nafterIntersection"); console.log(JSON.stringify(finalIDs)); 
+  // console.log("\nafterIntersection"); console.log(JSON.stringify(finalIDs)); 
 
   var finalIDs = _.difference(_.flatten(finalIDs), _.flatten(notIDArrs)); 
-  console.log("afterNOTFiltering"); console.log(JSON.stringify(finalIDs)); 
+  // console.log("afterNOTFiltering"); console.log(JSON.stringify(finalIDs)); 
 
   return finalIDs; 
 }
